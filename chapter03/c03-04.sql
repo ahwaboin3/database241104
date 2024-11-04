@@ -46,14 +46,54 @@ from book;
 -- where절에 조건으로 사용할 수 있는 술어
 -- 술어 | 연산자
 -- 비교 | =, < , >, <=, >=
--- 범위 | between
+-- 범위 | between and
 -- 집합 | in , not in
 -- 패턴 | like
 -- null | is null, is not null
 -- 복합조건 | and , or , not
 
+-- 비교
+-- 가격이 20000원 미만인 도서를 검색하시오.
+select *
+from book
+where price<20000;
 
+-- 범위
+-- 가격이 10000원 이상 20000원이하인 도서를 검색하시오.
+select *
+from book
+where price between 10000 and 20000;
 
+-- 논리연산자 사용
+select *
+from book
+where price>=10000 and price<=20000;
+
+-- 집합
+-- where절에 두 개 이상의 값을 비교하려면 in 연산자와 not in 연산자를 사용하면 편리하다.
+-- in 연산자는 집합의 원소인지 판단하는 연산자이다.
+
+-- 출판사가 '굿스포츠'혹은 '대한 미디어'인 도서를 검색하시오.
+select *
+from book
+where publisher in ('굿스포츠','대한미디어');
+-- sql문의 문자열은 작은 따옴표로 감싼다.
+
+-- 출판사가 '굿스포츠'혹은 '대한미디어'가 아닌 출판사를 검색하는 sql문을 작성하시오.
+select *
+from book
+where publisher not in ('굿스포츠','대한미디어');
+
+-- 패턴
+-- 문자열의 패턴을 비교할 때는 like연산자를 사용한다.
+
+-- "축구의 역사"를 출간한 출판사를 검색하시오.
+select publisher, bookname
+from book
+where bookname like '축구의 역사';
+
+-- 텍스트 혹은 날짜 데이터는 영문 작은따옴표('')로 둘러싸야 한다.
+-- 한글의 작은따옴표('')를 사용하면 오류가 난다.
 
 
 
