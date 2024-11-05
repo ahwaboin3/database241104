@@ -55,12 +55,39 @@ select custid, sum(saleprice) as 총판매액, count(*) as 도서수량
 from orders
 group by custid;
     
+-- having 절은 group by 절의 결과가 나타나는 그룹을 제한하는 역활을 한다.
 
+-- 가격이 8000원 이상인 도서를 구매한 고객에 대하여 고객별 주문 도서의 총수량을 구하시오.
+-- 단, 2권 이상 구매한 고객만 구하시오.
+select custid, count(*) as 도서수량
+from orders
+where saleprice>=8000
+group by custid
+having count(*)>=2;
 
+-- group by와 having 절의 문법과 주의사항
 
+-- group by <속성>
+-- 주의 사항
+-- group by로 투플을 그룹으로 묶은 후 select절에는 group by에서 사용한 <속성>과
+-- 집계 함수만 나올 수 있다.
 
+-- having <검색조건>
+-- 주의사항
+-- where절과 having절이 가팅 포함된 sql문은 검색조건이 모호해질 수 있다.
+-- having 절은 1. 반드시 group by절과 같이 작성해야 하고
+-- 2. where절보다 뒤에 나와야 한다.
+-- 3. <검색조건>에는 sum, avg, max, min, count와 같은 집계 함수가 와야 한다.
 
+-- group by 절이 포함된 sql문의 실행 순서
+-- sql문은 실행 순서가 없는 비절차적인 언어이지만 sql문은 내부적으로 샐행순서가 있다.
 
+select custid, count(*) as 도서수량    -- 5
+from orders                           -- 1
+where saleprice>=8000                 -- 2
+group by custid                       -- 3
+having count(*)>=2                    -- 4
+order by custid;                      -- 6
 
 
 
