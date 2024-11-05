@@ -145,6 +145,58 @@ select *
 from book
 where publisher='굿스포츠' or publisher='대한미디어';
 
+-- 검색 결과의 정렬
+-- sql문의 실행 결과 행의 순서는 각 DBMS에 저장된 위치에 따라 결정된다.
+-- sql문의 실행 결과를 특정 순서대로 출력하고 싶으면 order by 절을 사용한다.
+
+-- 도서를 이름순으로 검색하시오.
+select *
+from book
+order by bookname;
+-- 문자의 경우 정렬 순서는 숫자, 영문자, 한글 순이다.
+
+-- 도서를 가격순으로 검색하시오.
+select *
+from book
+order by price;
+
+-- 도서를 가격순으로 먼저 정렬한 후 가격이 같은 도서에 대하여 이름순으로
+-- 다시 정렬하고 싶으면 order by 절에서 정렬을 원하는 열 이름을 순서대로 지정한다.
+
+-- 도서를 가격순으로 검색하고, 가격이 같으면 이름순으로 검색하시오.
+select *
+from book
+order by price, bookname;
+
+-- 정렬의 기본은 오름차순이다.
+-- 내림차순으로 정렬하려면 열 이름 다음에 desc키워드를 사용
+
+-- 도서를 가격의 내림차순으로 검색하시오.
+select *
+from book
+order by price desc;
+
+-- 오름차순의 키워드는 asc
+select *
+from book
+order by price asc;
+-- 기본이 오름차순임으로 asc키워드는 일반적으로 생략한다.
+
+-- 도서를 가격의 내림차순으로 검색하시오. 만약 가격이 같다면 출판사의
+-- 오름차순으로 출력하시오.
+select *
+from book
+order by price desc, publisher asc;
+
+
+
+
+
+
+
+
+
+
 
 
 
