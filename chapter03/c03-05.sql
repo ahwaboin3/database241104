@@ -130,6 +130,90 @@ create table neworders(
 -- set null 옵션은 null 값으로 바꾼다
 -- no action 옵션은 기본 값으로 어떠한 동작도 취하지 않는다.
 
+-- 속성의 데이터 타입 종류
+-- 테이터 타입 | 설명
+-- number(p,s) | 실수형 p자리 정수 부분. s자리 소수부분, p와 s를 생략하면 number(8,2)로 저장 된다
+-- char(n) | 문자형 고정길이. 문자를 저장하고 남은 공간은 공백을 채운다
+-- varchar2(n) | 문자형 가변길이, 4000바이트까지 저장된다
+-- date | 날짜형. 연도, 월, 일, 시간을 저장한다.
+
+-- alter문
+-- alter문은 생성된 테이블의 속성과 속성에 관한 제약을 변경하며, 기본키 및 외래키를 변경한다.
+-- alter문의 문법
+-- alter table 테이블이름
+-- [add 속성이름 데이터 타입]
+-- [drop column 속성이름]
+-- [modify 속성이름 데이터타입]
+-- [modify 속성이름 [null | not null]]
+-- [add primary key(속성이름)]
+-- [[add|drop] 제약 이름]
+
+drop table newbook;
+
+create table newbook(
+    bookid number,
+    bookname varchar2(20),
+    publisher varchar2(20),
+    price number);
+
+-- newbook 테이블에 varchar2(13)의 자료형을 가진 isbn속성을 추가하시오.
+
+-- 테이블을 수정하려면 테이블을 삭제하고 다시 생성해도 되지만 테이블에 저장된 데이터를 그대로 두고
+-- 변경할 때는 alter문을 사용한다
+
+alter table newbook add isbn varchar2(13);
+
+select * from newbook;
+
+-- newbook 테이블의 isbn속성의 데이터 타입을 number형으로 변경하시오.
+alter table newbook modify isbn number;
+
+-- newbook 테이블의 isbn속성을 삭제하시오.
+alter table newbook drop column isbn;
+
+-- newbook 테이블의 bookname 속성에 not null제약조건을 적용하시오.
+alter table newbook modify bookname varchar(20) not null;
+
+-- ansi sql - sql 표준
+
+-- newbook 테이블의 bookid속성을 기본키로 변경하시오.
+alter table newbook add primary key(bookid);
+
+-- drop 문
+-- drop문은 테이블을 삭제하는 명령이다. drop문은 테이블의 구조와 데이터를 모두 삭제 하므로
+-- 사용에 주의해야 한다. 데이터만 삭제하려면 delete문을 사용한다.
+-- drop문의 문법
+-- drop table 테이블이름
+
+-- newbook 테이블을 삭제하시오.
+drop table newbook;
+
+-- newcustomer 테이블 삭제 하시오.
+create table NewCustomer(
+    custid number primary key,
+    name varchar2(40),
+    address varchar2(40),
+    phone varchar2(30));
+create table neworders(
+orderid number,
+custid number not null,
+bookid number not null,
+saleprice number,
+orderdate date,
+primary key(orderid),
+foreign key(custid) references newcustomer(custid) on delete cascade);
+drop table newcustomer;
+-- 삭제하려며는 테이블의 기본키를 다른 테이블에서 참조하고 있다면 삭제가 거절된다.
+-- newcutomer테이블을 삭제하기 위해서는 참조하고 있는 테이블 neworders테이블 부터 삭제해야 한다.
+drop table neworders;
+drop table newcustomer;
+
+
+
+
+
+
+
 
 
 
