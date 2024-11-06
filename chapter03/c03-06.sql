@@ -121,7 +121,12 @@ commit;
 rollback;
 select * from customer;
 
+-- 모든 고객을 삭제하시오.
+delete from customer;
 
+-- 위 sql문은 실행되지 않는다
+-- 그 이유는 orders테이블에서 customer.custid 속성을 외래키로 참조하고 있기 때문이다.
+-- 제약이 해제되지 않으면 데이터 삭제가 중지 된다.
 
 
 
