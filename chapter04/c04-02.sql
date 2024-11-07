@@ -94,6 +94,40 @@ select (select name
 from orders od
 group by od.custid;
 
+-- 스칼라 부속질의는 select문과 함께 update문에서도 사용할 수 있다.
+
+-- orders 테이블에 새로운 속성인 도서이름(bookname)을 추가해 보자.
+alter table orders add bookname varchar2(40);
+
+select * from orders;
+-- 새로운 속성에는 null값이 저장되어 있다.
+
+-- 스칼라 부속질의를 사용하면 도서이름을 일과 수정할 수 있다.
+
+-- orders 테이블에 각 주문에 맞는 도서이름을 입력하시오.
+update orders
+set bookname=(select bookname
+                from book
+                where book.bookid=orders.bookid);
+                
+select * from orders;
+
+-- 3. 인라뷰 - from 부속질의
+-- 뷰는 기존 테이블로부터 일시적으로 만들어진 가상의 테이블을 말한다.
+-- sql문의 from절에는 테이블 이름이 위치하는데 여기에 테이블 이름 대신 인라인 뷰 부속질의를
+-- 사용하면 보통의 테이블과 같은 형태로 사용할 수 있다.
+-- 부속질의 결과 반환되는 데이터는 다중 행, 다중 열이어도 상관없다.
+
+-- 고객번호가 2이하인 고객의 판매액을 보이시오(고객 이름과 고객별 판매액 출력)
+select cs.name, sum(od.saleprice) "total"
+from orders od,
+    (select custid, name
+    from customer
+    where custid<=2) cs
+where cs.custid=od.custid
+group by cs.name;
+
+
 
 
 
