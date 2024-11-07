@@ -119,7 +119,98 @@ where orderdate=TO_DATE('20200707','yyyymmdd');
 select sysdate, to_char(sysdate, 'yyyy/mm/dd dy hh24:mi:ss') "sysdate_1"
 from dual;
 
+-- null 값 처리
+-- null 값이란 아직 지정되지 않은 값을 말한다. 지정되지 않았다는 것은 값을 알 수도 없고
+-- 적용할 수도 없다는 뜻이다. null값은 비교 연산자로 비교할 수 없다.
 
+-- null 값에 대한 연산과 집계 함수
+-- 집계 함수를 사용할 때 null값이 포함된 행에 대하여 다음과 같은 주의가 필요하다.
+-- null+숫자 연산의 결과는 null이다
+-- 집계 함수를 계산할 때 null이 포함된 행은 집계에서 빠진다.
+-- 집계 함수에 적용되는 행이 하나도 없으면 , sum , avg 함수의 결과는 null이 되고
+-- count 함수의 결과는 0이다.
+
+create table mybook(
+    bookid number primary key,
+    price number
+)
+
+insert into mybook values(1, 10000);
+insert into mybook values(2, 20000);
+insert into mybook values(3, null);
+
+select * from mybook;
+
+select price+100
+from mybook
+where bookid=3;
+
+select sum(price),avg(price),count(*),count(price)
+from mybook;
+
+select sum(price),avg(price), count(*)
+from mybook
+where bookid>=4;
+
+-- null 값을 확인하는 방법 - is null, is not null
+-- null 값을 찾을 때는 '='연산자가 아닌 is null을 사용하고
+-- null이 아닌 값을 찾을 때는 is not null을 사용한다
+select *
+from mybook
+where price='';
+-- 빈문자열을 찾는다
+
+select *
+from mybook
+where price is null;
+--null 값 찾기의 옳은 예
+
+-- nvl함수
+-- nvl함수는 null값을 다른 값으로 대치하여 연산하거나 다른 값으로 출력하므로 null
+-- 값을 임의의 다른 값으로 변경할 수 있다. nvl함수는 vnl(속성, 값)형식으로 사용하고
+-- '속성'이 null값이면 '값'으로 대치한다.
+
+-- 이름, 전화번호가 포함된 고객목록을 보이시오. 단, 전화번호가 없는 고객은 '연락처없음'으로
+-- 표시하시오.
+select name "이름", nvl(phone, '연락처없음') "전화번호"
+from customer;
+
+-- rownum
+-- rownum은 오라클 내장 함수는 아니지만 자주 사용되는 문법이다. rownum은 오라클 내부적으로
+-- 생성되는 가상 컬럼으로 sql 조회 결과의 순번을 나타낸다. 자료를 일부분만 확인하여 처리할 때
+-- 유용하다.
+
+-- 고객목록에서 고객번호, 이름, 전화번호를 앞의 두 명만 보이시오.
+select rownum "순번",custid, name, phone
+from customer
+where rownum<=2;
+
+-- 결과를 추출한 후 맨 앞의 두 개를 보여 주는 것을 알 수 있다.
+-- 이때 보여 주는 순서는 규칙이 없고 오라클이 저장해 둔 순서대로 보여 준다.
+
+-- rownum 사용 시 주의 사항
+-- 가나다순으로 정리된 고객목록에 고객번호, 이름, 전화번호를 앞의 두 명만 보이시오
+select rownum, custid ,name, phone
+from customer
+where rownum<=2
+order by name;
+-- 실제 고객의 이름순으로 정렬한다면 김연아, 박세리 순으로 나와야 하지만 위 질의의 결과를
+-- 보면 박세리, 박지성 순으로 나온다.
+-- where문을 order by 문보다 먼저 실행하기 때문에 원하는 결과가 나오지 않는다.
+
+-- 오라클의 select문 처리 순서
+-- 처리 순서 | 해당 문장 | 설명
+-- 1 | from customer | customer 테이블을 읽어 들임
+-- 2 | where rownum<=2 | 오라클이 데이터를 읽은 순서대로 두 개 투플 선택
+-- 3 | select rownum, custid, name, phone | rownum, custid, name, phone 열을 선택
+-- 4 | order by name | 이름순으로 정렬
+
+-- 이 경우는 부속질의를 사용하여 먼저 정렬하면 원하는 결과를 얻을 수 있다.
+select rownum "순번", custid, name, phone
+from (select custid, name, phone
+    from customer
+    order by name)
+where rownum <=2;
 
 
 
