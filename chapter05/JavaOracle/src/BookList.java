@@ -42,10 +42,12 @@ public class BookList {
 		try {
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery(query);
-			while(rs.next(
-					)) {
-				System.out.println(rs.getInt(1));
-				System.out.println(rs.getString(2));
+			while(rs.next()) {
+				System.out.print(rs.getInt(1));
+				System.out.print(rs.getString(2));
+				System.out.print(rs.getString(3));
+				System.out.print(rs.getInt(4));
+				System.out.println();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
