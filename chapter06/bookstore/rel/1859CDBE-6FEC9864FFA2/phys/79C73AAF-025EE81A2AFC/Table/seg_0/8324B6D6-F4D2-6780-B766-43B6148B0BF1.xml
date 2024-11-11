@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="BOOK" directorySegmentName="seg_0" id="8324B6D6-F4D2-6780-B766-43B6148B0BF1">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:27:58 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+<schemaObject>41DB0A34-8BBB-01B7-BE11-97619927EFBA</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>962D22DA-31AF-0149-FDBE-855CE0BEF523</segment>
+<tableSpace>F1056B95-F394-AD52-319C-2252A41BBCB3</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PRICE" id="22FB3F70-FF44-653D-48CF-12DFC89EFFD9">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BOOKID" id="41876E82-75C3-24BA-3D0B-F3E8109D3F0B">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BOOKNAME" id="8537E0B2-2683-780E-C79B-1ED03346A8BA">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PUBLISHER" id="CB1D6F45-5DD6-E0B0-6AAB-0E3F0DF909F3">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="IX_BOOK2" id="8CF19AD9-9947-1AB3-C74C-1692B2A1D31F">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:27:58 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+<schemaObject>41DB0A34-8BBB-01B7-BE11-97619927EFBA</schemaObject>
+<segment>7BA603E0-0F92-ED7E-C97A-EE5D39BC9681</segment>
+<tableSpace>F1056B95-F394-AD52-319C-2252A41BBCB3</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BOOK_PK" id="576AFA8B-8DC6-582B-8292-A3464070854D">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:27:58 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+<schemaObject>41DB0A34-8BBB-01B7-BE11-97619927EFBA</schemaObject>
+<segment>7BA603E0-0F92-ED7E-C97A-EE5D39BC9681</segment>
+<tableSpace>F1056B95-F394-AD52-319C-2252A41BBCB3</tableSpace>
+<indexSegment>7BA603E0-0F92-ED7E-C97A-EE5D39BC9681</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

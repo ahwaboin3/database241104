@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CUSTOMER" directorySegmentName="seg_0" id="90F2A586-9AA0-1202-CF90-05EB40535379">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:12 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+<schemaObject>41DB0A34-8BBB-01B7-BE11-97619927EFBA</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>962D22DA-31AF-0149-FDBE-855CE0BEF523</segment>
+<tableSpace>F1056B95-F394-AD52-319C-2252A41BBCB3</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CUSTID" id="0D12EB6D-0098-A42E-2E36-BAE0A2FC0A19">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="102F92EC-CE3A-1F3B-ACF0-C59D49278240">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="5EEDCA0D-FDD5-25FE-1DD2-18C8F66245D8">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="A289FE42-092D-BEAE-C94B-EA9AE35257AC">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CUSTOMER_PK" id="03CEAC9F-7F7D-C697-E3D6-08011D25F942">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:12 UTC</createdTime>
+<ownerDesignName>제목 없음_1</ownerDesignName>
+<schemaObject>41DB0A34-8BBB-01B7-BE11-97619927EFBA</schemaObject>
+<segment>7BA603E0-0F92-ED7E-C97A-EE5D39BC9681</segment>
+<tableSpace>F1056B95-F394-AD52-319C-2252A41BBCB3</tableSpace>
+<indexSegment>7BA603E0-0F92-ED7E-C97A-EE5D39BC9681</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

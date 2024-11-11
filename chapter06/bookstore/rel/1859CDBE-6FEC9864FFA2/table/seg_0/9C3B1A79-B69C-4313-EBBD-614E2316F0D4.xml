@@ -1,0 +1,155 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9C3B1A79-B69C-4313-EBBD-614E2316F0D4" schemaObject="41DB0A34-8BBB-01B7-BE11-97619927EFBA" name="ORDERS">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>C##MADANG</sourceObjSchema>
+<sourceObjName>ORDERS</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:25 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORDERID" id="EE4AFC28-2F33-8FAE-B873-7384D4A12E99">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>ORDERID</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>B64D4649-43FC-2662-A6E2-541E2DDF6E7C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTID" id="CE85EEAF-7029-1166-7469-60AAFD56BB3F">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>CUSTID</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>C96023C7-F736-6006-0A57-4755DC9D71F3</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="95F6A764-E59B-D814-5172-5640E4B40119" referredColumn="0D12EB6D-0098-A42E-2E36-BAE0A2FC0A19"/>
+</associations>
+</Column>
+<Column name="BOOKID" id="6A6BB7BD-A4B8-4AF5-7A09-AA2383BEA01C">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>BOOKID</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>C1448F75-A756-CB34-C452-4CE9C2586F87</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,2,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8DEB7B4A-AEFB-C07A-B9A1-EC7126B482DC" referredColumn="41876E82-75C3-24BA-3D0B-F3E8109D3F0B"/>
+</associations>
+</Column>
+<Column name="SALEPRICE" id="75FABBCA-C410-4D05-57D6-50A539C75288">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>SALEPRICE</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>49E40C75-BDE8-3449-58A9-194006611411</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDERDATE" id="825C0294-12B3-4017-6F9B-A1FD386591F8">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>ORDERDATE</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>14528C7F-85B5-C078-0825-87FBC5E71F45</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOOKNAME" id="4503EE07-329D-4517-CA40-DA5C209571C5">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>ORDERS</sourceObjSchema>
+<sourceObjName>BOOKNAME</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:29:42 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<importedID>5C1674DF-8E88-2B08-7D55-FC7604A50AAA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<ownDataTypeParameters>40 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3DBCF302-17A0-BF3E-1DE3-DA2CB85D0B96" schemaObject="41DB0A34-8BBB-01B7-BE11-97619927EFBA" name="ORDERS_PK">
+<sourceConnName>local-madang</sourceConnName>
+<sourceObjSchema>C##MADANG</sourceObjSchema>
+<sourceObjName>SYS_C007310</sourceObjName>
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:25 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE4AFC28-2F33-8FAE-B873-7384D4A12E99"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4BC75C61-C565-0EF4-C2BE-0B06467EF745" name="SYS_C007311">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:25 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE85EEAF-7029-1166-7469-60AAFD56BB3F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="285F9EB7-7644-338F-B3A5-58C02F14B125" name="SYS_C007312">
+<createdBy>user</createdBy>
+<createdTime>2024-11-11 05:28:25 UTC</createdTime>
+<ownerDesignName>bookstore</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A6BB7BD-A4B8-4AF5-7A09-AA2383BEA01C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
