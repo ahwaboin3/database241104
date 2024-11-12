@@ -95,11 +95,61 @@ select * from summer;
 update summer set price=15000
 where class='javascript' and sid=250;
 
+-- 기존 테이블이 있으면 삭제
+drop table summerprice;
+drop table summerenroll;
 
+-- summerprice 테이블 생성
+create table summerprice(
+    class varchar(20),
+    price integer
+);
+insert into summerprice values('java',20000);
+insert into summerprice values('html5',10000);
+insert into summerprice values('database','15000');
+insert into summerprice values('javascript','20000');
+select * from summerprice;
 
+-- summerenroll 테이블 생성
+create table summerenroll(
+    sid integer,
+    class varchar(20)
+);
 
+insert into summerenroll values(100, 'java');
+insert into summerenroll values(150, 'database');
+insert into summerenroll values(200, 'html5');
+insert into summerenroll values(250, 'javascript');
+insert into summerenroll values(300, 'javascript');
+select * from summerenroll;
 
+ -- 삭제이상 없음
+ -- 200번 학생의 계절학기 수강신청을 취소하시오.
+ select price "html5 수강료" from summerprice
+ where class='html5';
+ 
+ delete from summerenroll where sid=200;
+ 
+ select * from summerenroll;
+ 
+ -- 다시 수강료 조회
+ select price "html5 수강료" from summerprice
+ where class='html5';
+ 
+ -- 삽입이상 없음
+ -- 계절학기에 새로운 리액트 강좌를 개설하시오.
+ -- 리액트 강좌 삽입, null값을 입력할 필요 없음
+insert into summerprice values('react',30000);
 
+select * from summerprice;
+
+-- 수정이상 없음
+-- 자바 강좌의 수강료를 20000원에서 30000원으로 수정하시오.
+update summerprice set price=30000
+where class='java';
+
+select price "자바 수강료" from summerprice
+where class='java';
 
 
 
