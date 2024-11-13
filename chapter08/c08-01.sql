@@ -42,9 +42,86 @@ create tablespace md_test
 -- drop tablespace는 테이블스페이스 삭제 시 사용하는 명령이다.
 -- drop tablespace 테이블스페이스명
 --  [including contents [and datafiles][cascade constraints]];
+-- including contents : 테이블스페이스의 모든 데이터를 삭제한다.
+-- and datafiles: os상의 물리적인 데이터 파일을 삭제한다.
+-- (이 옵션이 없다면 실제 데이터 파일은 삭제되지 않는다.)
+-- cascade constraints: 다른 테이블스페이스의 테이블로부터 참조되는
+-- 제약조건들까지 모두 삭제한다.
 
+-- 오라클 pdb 생성
+-- sysdba 계정 접속
 
+-- pdb 생성
+-- CREATE pluggable DATABASE "{PDB 이름}" 
+-- admin USER "{DBA ID}" IDENTIFIED BY "{Password}" roles=(dba)
 
+-- pdb 생성 확인
+-- SELECT * FROM V$PDBS;
+
+-- 신규 사용자 계정 생성하기
+-- create user
+-- 문법
+-- create user [사용자 이름]
+--  identified by [비밀번호]
+--  default tablespace [테이블스페이스];
+-- default tablespace를 지정하지 않으면 오라클에서 기본으로
+-- users 테이블스페이스를 할당한다.
+
+-- alter user
+-- 문법
+-- alter user [사용자이름]
+--  identified by [비밀번호];
+
+-- drop user
+-- 문법
+-- drop user [사용자이름] cascade;
+-- cascade를 사용하면 삭제 시점에 사용자가 보유한 모든 데이터를 같이 삭제한다.
+
+-- (pdb1_system 계정) 새로운 사용자 mdguest를 생성하시오. 비밀번호는 mdguest
+-- 생성
+create user mdguest
+    identified by mdguest;
+    
+-- 권한 관리
+-- 세션 생성 권한은 데이터베이스 접속, 테이블 생성 및 조회같이 데이터베이스 활용
+-- 을 위한 전반적인 부분에서 필요하다. 데이터베이스 접근을 위한 권한인
+-- connect role, 테이블 생성 권한인 resource role과 테이블스페이스를
+-- 사용하기 위한 unlimited tablespace를 grant문으로 부여하면 된다.
+
+-- (pdb1_system 계정) 앞에서 생성한 mdguest 사용자에게 데이터베이스 접속
+-- 및 테이블 생성 권한, 테이블스페이스를 무제한으로 사용할 수 있는
+-- 권을 부여하시오.
+grant connect,resource, unlimited tablespace to mdguest;
+
+-- 권한 허가 - grant
+-- 문법
+-- grant 권한 [(컬럼[,...n])],[,...n]
+--  [on 객체] to {사용자 | 롤 | public [,...n]}
+--  [with grant option]
+-- 권한
+-- 허가할 권한을 지정한다. 객체 타입별로 지정 가능한 권한은 아래에서 알아보도록
+-- 하겠습니다. 
+-- 컬럼
+-- 사용 권한을 부여할 테이블의 열 이름을 지정한다. ()안에 표시해야 한다.
+-- 객체
+-- 테이블이나 뷰등의 이름이 올 수 있다.
+-- to 사용자
+-- 사용자나 권한의 묶음인 롤(role)에 권한을 추가할 수 있다. public은 모든
+-- 사용자가 사용할 수 있도록 공개적으로 권한을 부여한다는 의미이다.
+-- with grant option
+-- 허가받은 권한을 다른 사용자에게 다시 부여할 수 있다. 이 옵션이 없으면
+-- 권한의 재부여는 허가하지 않는다.
+
+-- 객체 권한
+-- alter, delete, index, insert, references, select, update
+
+-- 데이터베이스 자체 작업을 위한 시스템 권한과 테이블, 뷰 같은 객체 권한으로
+-- 나눌 수 있다.
+
+-- 시스템 권한
+-- 시스템 권한 | 설명
+-- create table | 테이블을 생성할 수 있음
+-- create view | 뷰를 생성할 수 있음
 
 
 
