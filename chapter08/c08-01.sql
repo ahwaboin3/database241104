@@ -122,6 +122,34 @@ grant connect,resource, unlimited tablespace to mdguest;
 -- 시스템 권한 | 설명
 -- create table | 테이블을 생성할 수 있음
 -- create view | 뷰를 생성할 수 있음
+-- create user | 새로운 사용자를 생성할 수 있음
+-- create tablespace | 테이블스페이스를 만들 수 있음
+-- create session | 데이터베이스에 접속 여부에 대한 권한
+-- delete any table | 다른 사용자의 테이블을 삭제(delete)할 수 있음
+-- alter any table | 다른 사용자의 테이블을 수정할 수 있음
+-- drop any table | 다른 사용자의 테이블을 삭제(drop)할 수 있음
+
+--system권한으로
+create table book(
+    bookid number primary key,
+    bookname varchar2(30)
+);
+
+insert into book values(1,'오라클 개론');
+
+-- (pdb1_system 계정) mdguest에게 Book테이블의 select 권한을 부여하시오.
+grant select on system.book to mdguest;
+-- mdguest로
+select * from book;
+
+-- 권한 취소 - revoke
+-- 문법
+-- revoke 권한 [(컴럼[,...n])][,...n]
+-- [on 객체] from {사용자|롤|public[,...n]}
+-- system 접속) mdguest에게 부여된 book테이블의 select권한을 취소하시오.
+revoke select on system.book from mdguest;
+
+
 
 
 
